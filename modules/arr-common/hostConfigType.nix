@@ -34,8 +34,8 @@ in
       };
 
       authenticationRequired = mkOption {
-        type = types.enum ["enabled" "disabled" "disabledForLocalAddresses"];
-        default = "enabled";
+        type = types.enum ["Enabled" "Disabled" "DisabledForLocalAddresses"];
+        default = "Enabled";
         description = "Authentication requirement level";
       };
 
