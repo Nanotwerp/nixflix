@@ -176,6 +176,10 @@ in {
             // extraConfigOptions
             // {
               downloadClients = downloadClients.options;
+              extraDownloadClients = mkOption {
+                default = [];
+                description = "Extra download clients for the service";
+              };
               hostConfig = hostConfig.options;
             }
             // optionalAttrs usesMediaDirs {
@@ -256,7 +260,7 @@ in {
               // optionalAttrs (serviceName == "prowlarr") {
                 category = serviceName;
               })
-          ]
+          ] ++ cfg.config.extraDownloadClients
         );
       };
     };
