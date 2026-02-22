@@ -76,7 +76,7 @@ let
         };
 
         script = ''
-          set -eu
+          set -xeu
 
           BASE_URL="http://127.0.0.1:${builtins.toString serviceConfig.hostConfig.port}${serviceConfig.hostConfig.urlBase}/api/${serviceConfig.apiVersion}"
 
@@ -194,7 +194,7 @@ let
                     data = "$UPDATED_CLIENT";
                     extraArgs = "-Sf";
                   }
-                } >/dev/null
+                }
 
                 echo "Download client ${clientName} updated"
               else
