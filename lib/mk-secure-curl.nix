@@ -36,7 +36,6 @@ let
   dataHandling = lib.optionalString (data != null || !(lib.hasPrefix "@" data)) ''
     CURL_DATA_FILE=$(mktemp)
     _CURL_CLEANUP_FILES="''${_CURL_CLEANUP_FILES:-} $CURL_DATA_FILE"
-    trap 'rm -f $_CURL_CLEANUP_FILES' EXIT
     cat > "$CURL_DATA_FILE" <<DATA_EOF
     ${data}
     DATA_EOF
